@@ -1,0 +1,27 @@
+<ChoiceScreen>:
+    AnchorLayout:
+        BoxLayout:
+
+
+            orientation: "vertical"
+            size_hint: (.6, .45)
+            padding: 50
+            spacing: 10
+
+            Button:
+                text: "Працівник"
+                font_size: 40
+                on_release:
+                    root.manager.current = "worker"
+
+            Button:
+                text: "Посада"
+                font_size: 40
+
+            Button:
+                text: "Табель робітника"
+                font_size: 40
+
+            Button:
+                text: "Рапорт"
+                font_size: 40
