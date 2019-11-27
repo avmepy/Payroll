@@ -1,0 +1,62 @@
+<PositionMainScreen>:
+    AnchorLayout:
+        BoxLayout:
+            orientation: "vertical"
+
+            BoxLayout:
+                padding: 20
+                orientation: "horizontal"
+                spacing: 30
+                size_hint: (1, .4)
+
+                Button:
+                    text: "Додати"
+                    font_size: 40
+                    on_release:
+                        root.manager.current = "positionadd"
+
+                Button:
+                    text: "Змінити"
+                    font_size: 40
+                    on_release:
+                        root.manager.current = "positionchange"
+
+                Button:
+                    text: "Видалити"
+                    font_size: 40
+                    on_release:
+                        root.manager.current = "positiondelete"
+
+            AnchorLayout:
+                Label:
+                    text: "Оберіть процедуру"
+                    font_size: 45
+
+            GridLayout:
+                padding: 40
+                #orientation: "vertical"
+                cols: 2
+
+
+
+            AnchorLayout
+
+
+
+
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint: (1, .4)
+                spacing: 40
+                padding: 20
+
+                Button:
+                    font_size: 40
+                    text: "Повернутися"
+
+                    on_release:
+                        root.manager.current = "choice"
+                Button:
+                    text: "Підтвердити"
+                    font_size: 40
+

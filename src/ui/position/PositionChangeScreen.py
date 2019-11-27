@@ -7,8 +7,8 @@ from kivy.lang import Builder
 from kivy.uix.screenmanager import Screen
 
 
-Builder.load_file('./kv/worker.kv')
+Builder.load_file('./kv/positionchange.kv')
 
 
-class WorkerScreen(Screen):
+class PositionChangeScreen(Screen):
     pass

@@ -1,0 +1,91 @@
+<PositionChangeScreen>:
+    AnchorLayout:
+        BoxLayout:
+            orientation: "vertical"
+
+            BoxLayout:
+                padding: 20
+                orientation: "horizontal"
+                spacing: 30
+                size_hint: (1, .4)
+
+                Button:
+                    text: "Додати"
+                    font_size: 40
+                    on_release:
+                        root.manager.current = "positionadd"
+
+                Button:
+                    text: "Змінити"
+                    font_size: 40
+                    on_release:
+                        root.manager.current = "positionchange"
+
+                Button:
+                    text: "Видалити"
+                    font_size: 40
+                    on_release:
+                        root.manager.current = "positiondelete"
+
+            AnchorLayout:
+                Label:
+                    text: "Змінити"
+                    font_size: 45
+
+            GridLayout:
+                padding: 40
+                cols: 2
+
+                Label:
+                    size_hint_x: .3
+                    text: "id"
+                    font_size: 40
+
+                TextInput:
+                    multiline: False
+                    font_size: 50
+
+                Label:
+                    size_hint_x: .3
+                    text: "name"
+                    font_size: 40
+
+                TextInput:
+                    multiline: False
+                    font_size: 50
+
+                Label:
+                    size_hint_x: .3
+                    text: "salary"
+                    font_size: 40
+
+                TextInput:
+                    multiline: False
+                    font_size: 50
+
+
+            AnchorLayout:
+                Label:
+                    text: "Посада"
+                    font_size: 45
+
+
+
+
+
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint: (1, .4)
+                spacing: 40
+                padding: 20
+
+                Button:
+                    font_size: 40
+                    text: "Повернутися"
+
+                    on_release:
+                        root.manager.current = "choice"
+                Button:
+                    text: "Підтвердити"
+                    font_size: 40
+
