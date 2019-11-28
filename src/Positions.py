@@ -68,6 +68,15 @@ class PositionsDB:
         conn.commit()
         conn.close()
 
+    def get_all(self):
+        conn = sqlite3.connect(self.filename)
+        curs = conn.cursor()
+        curs.execute("SELECT * FROM positions")
+        res = curs.fetchall()
+        conn.commit()
+        conn.close()
+        return res
+
 
 if __name__ == '__main__':
     pdb = PositionsDB("../data/data.db")

@@ -35,6 +35,15 @@ class WorkersDB:
         conn.close()
         return res
 
+    def get_all(self):
+        conn = sqlite3.connect(self.filename)
+        curs = conn.cursor()
+        curs.execute("SELECT * FROM workers")
+        res = curs.fetchall()
+        conn.commit()
+        conn.close()
+        return res
+
     def find_id_position(self, worker_id):
         conn = sqlite3.connect(self.filename)
         curs = conn.cursor()

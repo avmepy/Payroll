@@ -17,6 +17,10 @@ from src.ui.statement.StatementMainScreen import StatementMainScreen
 from src.ui.statement.StatementAddScreen import StatementAddScreen
 from src.ui.statement.StatementChangeScreen import StatementChangeScreen
 from src.ui.statement.StatementDeleteScreen import StatementDeleteScreen
+from src.ui.report.ReportChoiceScreen import ReportChoiceScreen
+from src.ui.SaveWorker import SaveWorker
+from src.ui.SavePosition import SavePosition
+from src.ui.Savepay import SavePay
 
 
 class MainApp(App):
@@ -36,6 +40,10 @@ class MainApp(App):
         sm.add_widget(StatementAddScreen(name="statementadd"))
         sm.add_widget(StatementChangeScreen(name="statementchange"))
         sm.add_widget(StatementDeleteScreen(name="statementdelete"))
+        sm.add_widget(ReportChoiceScreen(name="reportchoice"))
+        sm.add_widget(SaveWorker(name="saveworker"))
+        sm.add_widget(SavePosition(name="saveposition"))
+        sm.add_widget(SavePay(name="savepay"))
         sm.current = "choice"
 
         return sm

@@ -38,6 +38,15 @@ class ReportCartDB:
         curs = conn.cursor()
         curs.execute("SELECT id_report, amount FROM reports WHERE id_worker = ? AND cmonth = ?", (id_worker, cmonth))
 
+    def get_all(self):
+        conn = sqlite3.connect(self.filename)
+        curs = conn.cursor()
+        curs.execute("SELECT * FROM positions")
+        res = curs.fetchall()
+        conn.commit()
+        conn.close()
+        return res
+
 
 if __name__ == '__main__':
     rdb = ReportCartDB("../data/data.db")

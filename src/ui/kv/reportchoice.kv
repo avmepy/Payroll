@@ -1,4 +1,4 @@
-<ChoiceScreen>:
+<ReportChoiceScreen>:
     AnchorLayout:
         BoxLayout:
 
@@ -11,22 +11,24 @@
             Button:
                 text: "Працівник"
                 font_size: 40
-                on_release:
-                    root.manager.current = "workermain"
+                #on_release: root.get_report_worker()
+                on_release: root.manager.current = "saveworker"
 
             Button:
                 text: "Посада"
                 font_size: 40
-                on_release:
-                    root.manager.current = "positionmain"
+                on_release: root.manager.current = "saveposition"
+
 
             Button:
-                text: "Табель робітника"
+                text: "Виплати"
                 font_size: 40
-                on_release:
-                    root.manager.current = "statementmain"
+                on_release: root.manager.current = "savepay"
+
 
             Button:
-                text: "Рапорт"
+                text: "На головну"
                 font_size: 40
-                on_release: root.manager.current = "reportchoice"
+                on_release: root.manager.current = "choice"
+
+

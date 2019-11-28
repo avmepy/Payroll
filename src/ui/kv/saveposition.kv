@@ -1,0 +1,37 @@
+<SavePosition>:
+
+    save_position_file: file_chooser_id
+    name_input: input
+
+    BoxLayout:
+        orientation: "vertical"
+        padding: 20
+        spacing: 20
+
+        FileChooserIconView:
+            id: file_chooser_id
+            size_hint: (1, .8)
+
+        BoxLayout:
+            size_hint: (1, .05)
+            Label:
+                size_hint: (.3, 1)
+                text: "filename"
+
+            TextInput:
+                id: input
+                multiline: False
+
+
+        AnchorLayout:
+            size_hint: (1, .1)
+            BoxLayout:
+                padding: 5
+                spacing: 10
+
+                Button:
+                    text: "Save"
+                    on_release: root.save()
+                Button:
+                    text: "На головну"
+                    on_release: root.manager.current = "choice"
