@@ -1,4 +1,11 @@
 <WorkerAddScreen>:
+
+    worker_add_input_id: input_id
+    worker_add_input_name: input_name
+    worker_add_input_position: input_position
+
+
+
     AnchorLayout:
         BoxLayout:
             orientation: "vertical"
@@ -43,6 +50,7 @@
                     font_size: 40
 
                 TextInput:
+                    id: input_id
                     multiline: False
                     font_size: 50
 
@@ -52,6 +60,7 @@
                     font_size: 40
 
                 TextInput:
+                    id: input_name
                     multiline: False
                     font_size: 50
 
@@ -61,10 +70,13 @@
                     font_size: 40
 
                 TextInput:
+                    id: input_position
                     multiline: False
                     font_size: 50
 
             AnchorLayout:
+                Label:
+                    text: "Працівник"
 
             BoxLayout:
                 orientation: "horizontal"
@@ -81,3 +93,4 @@
                 Button:
                     text: "Підтвердити"
                     font_size: 40
+                    on_release: root.worker_add_fun()

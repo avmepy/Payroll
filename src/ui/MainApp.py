@@ -13,6 +13,8 @@ from src.ui.position.PositionMainScreen import PositionMainScreen
 from src.ui.position.PositionAddScreen import PositionAddScreen
 from src.ui.position.PositionChangeScreen import PositionChangeScreen
 from src.ui.position.PositionDeleteScreen import PositionDeleteScreen
+from src.ui.statement.StatementMainScreen import StatementMainScreen
+from src.ui.statement.StatementAddScreen import StatementAddScreen
 
 
 class MainApp(App):
@@ -28,6 +30,8 @@ class MainApp(App):
         sm.add_widget(PositionAddScreen(name="positionadd"))
         sm.add_widget(PositionChangeScreen(name="positionchange"))
         sm.add_widget(PositionDeleteScreen(name="positiondelete"))
+        sm.add_widget(StatementMainScreen(name="statementmain"))
+        sm.add_widget(StatementAddScreen(name="statementadd"))
         sm.current = "choice"
 
         return sm

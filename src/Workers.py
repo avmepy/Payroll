@@ -3,6 +3,7 @@
 # author: Valentyn Kofanov
 
 import sqlite3
+from data.const import PATH_DB
 
 
 class WorkersDB:
@@ -34,7 +35,22 @@ class WorkersDB:
         conn.close()
         return res
 
+    def change(self, worker_id, name, position):
+        conn = sqlite3.connect(self.filename)
+        curs = conn.cursor()
+        curs.execute("UPDATE workers SET name = ? , position = ? WHERE worker_id = ?", (name, position, worker_id))
+        conn.commit()
+        conn.close()
+
+    def remove(self, worker_id):
+        conn = sqlite3.connect(self.filename)
+        curs = conn.cursor()
+        curs.execute("DELETE FROM  workers WHERE worker_id = ?", (worker_id, ))
+        conn.commit()
+        conn.close()
+
 
 if __name__ == '__main__':
-    wdb = WorkersDB("../data/data.db")
+    wdb = WorkersDB(PATH_DB)
     wdb.create()
+

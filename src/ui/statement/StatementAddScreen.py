@@ -5,14 +5,14 @@
 
 from kivy.lang import Builder
 from kivy.uix.screenmanager import Screen
-from data.const import PATH_DB
+from data.const import PATH_DB, MONTHS
 from src.Positions import PositionsDB
 
 
-Builder.load_file('./kv/positionadd.kv')
+Builder.load_file('./kv/statementadd.kv')
 
 
-class PositionAddScreen(Screen):
+class StatementAddScreen(Screen):
 
     def position_add_fun(self):
         input_id = self.position_add_input_id.text

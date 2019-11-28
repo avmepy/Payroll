@@ -1,7 +1,4 @@
-<WorkerDeleteScreen>:
-
-    worker_delete_input_id: input_id
-
+<StatementAddScreen>:
     AnchorLayout:
         BoxLayout:
             orientation: "vertical"
@@ -16,46 +13,71 @@
                     text: "Додати"
                     font_size: 40
                     on_release:
-                        root.manager.current = "workeradd"
+                        root.manager.current = "statementadd"
 
                 Button:
                     text: "Змінити"
                     font_size: 40
                     on_release:
-                        root.manager.current = "workerchange"
+                        root.manager.current = "statementchange"
 
                 Button:
                     text: "Видалити"
                     font_size: 40
                     on_release:
-                        root.manager.current = "workerdelete"
+                        root.manager.current = "statementdelete"
 
             AnchorLayout:
                 Label:
-                    text: "Видалення"
+                    text: "Додавання"
                     font_size: 45
 
-
             GridLayout:
-                size_hint: (1, .4)
                 padding: 40
+                #orientation: "vertical"
                 cols: 2
 
                 Label:
-                    size_hint_x: .3
-                    text: "id"
-                    font_size: 40
+                    text: "month"
 
                 TextInput:
-                    id: input_id
                     multiline: False
-                    font_size: 50
+                    font_size: 40
+
+                Label:
+                    text: "id statement:"
+
+                TextInput:
+                    multiline: False
+                    font_size: 40
+
+                Label:
+                    text: "id worker"
+
+                TextInput:
+                    multiline: False
+                    font_size: 40
+
+                Label:
+                    text: "amount"
+
+                TextInput:
+                    multiline: False
+                    font_size: 40
+
+
+
+
+
 
 
 
             AnchorLayout:
                 Label:
-                    text: "Працівник"
+                    text: "Табель"
+
+
+
 
             BoxLayout:
                 orientation: "horizontal"
@@ -72,4 +94,4 @@
                 Button:
                     text: "Підтвердити"
                     font_size: 40
-                    on_release: root.worker_delete_fun()
+

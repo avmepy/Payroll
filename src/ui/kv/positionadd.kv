@@ -1,4 +1,9 @@
 <PositionAddScreen>:
+
+    position_add_input_id: input_id
+    position_add_input_name: input_name
+    position_add_input_salary: input_salary
+
     AnchorLayout:
         BoxLayout:
             orientation: "vertical"
@@ -29,7 +34,7 @@
 
             AnchorLayout:
                 Label:
-                    text: "Додати"
+                    text: "Додавання"
                     font_size: 45
 
             GridLayout:
@@ -42,6 +47,7 @@
                     font_size: 40
 
                 TextInput:
+                    id: input_id
                     multiline: False
                     font_size: 50
 
@@ -51,6 +57,7 @@
                     font_size: 40
 
                 TextInput:
+                    id: input_name
                     multiline: False
                     font_size: 50
 
@@ -60,6 +67,7 @@
                     font_size: 40
 
                 TextInput:
+                    id: input_salary
                     multiline: False
                     font_size: 50
 
@@ -88,4 +96,5 @@
                 Button:
                     text: "Підтвердити"
                     font_size: 40
+                    on_release: root.position_add_fun()
 

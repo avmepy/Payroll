@@ -15,7 +15,7 @@ class StatementDB:
 
         conn = sqlite3.connect(self.filename)
         curs = conn.cursor()
-        curs.execute("CREATE TABLE IF NOT EXISTS statement (id_statement INT, id_worker INT, month TEXT, amount INT)")
+        curs.execute("CREATE TABLE IF NOT EXISTS statement (id_statement INT, id_worker INT, month TEXT, amount BLOB)")
         conn.commit()
         conn.close()
 
