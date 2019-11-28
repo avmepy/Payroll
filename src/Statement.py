@@ -15,14 +15,14 @@ class StatementDB:
 
         conn = sqlite3.connect(self.filename)
         curs = conn.cursor()
-        curs.execute("CREATE TABLE IF NOT EXISTS statement (id_statement INT, id_worker INT, month TEXT, amount BLOB)")
+        curs.execute("CREATE TABLE IF NOT EXISTS statement (id_statement INT, id_worker INT, cmonth TEXT, amount BLOB)")
         conn.commit()
         conn.close()
 
-    def append(self, id_statement, id_worker, month, amount):
+    def append(self, id_statement, id_worker, cmonth, amount):
         conn = sqlite3.connect(self.filename)
         curs = conn.cursor()
-        curs.execute("INSERT INTO statement VALUES (?, ?, ?, ?)", (id_statement, id_worker, month, amount))
+        curs.execute("INSERT INTO statement VALUES (?, ?, ?, ?)", (id_statement, id_worker, cmonth, amount))
         conn.commit()
         conn.close()
 
@@ -35,10 +35,25 @@ class StatementDB:
         conn.close()
         return res
 
-    def find_pay(self, id_worker, month):
+    def find_pay(self, id_worker, cmonth):
         conn = sqlite3.connect(self.filename)
         curs = conn.cursor()
-        curs.execute("SELECT id_statement FROM statement WHERE id_worker = ? AND month = ?", (id_worker, month))
+        curs.execute("SELECT id_statement FROM statement WHERE id_worker = ? AND month = ?", (id_worker, cmonth))
+
+    def change(self, id_statement, id_worker, cmonth, amount):
+        conn = sqlite3.connect(self.filename)
+        curs = conn.cursor()
+        curs.execute("UPDATE statement SET id_worker = ? , cmonth = ?, amount = ? WHERE id_statement = ?",
+                     (id_worker, cmonth, amount, id_statement))
+        conn.commit()
+        conn.close()
+
+    def remove(self, id_statement):
+        conn = sqlite3.connect(self.filename)
+        curs = conn.cursor()
+        curs.execute("DELETE FROM statement WHERE id_statement = ?", (id_statement, ))
+        conn.commit()
+        conn.close()
 
 
 if __name__ == '__main__':
