@@ -1,9 +1,6 @@
-<StatementAddScreen>:
+<StatementDeleteScreen>:
 
-    statement_add_input_id_statement: input_id_statement
-    statement_add_input_id_worker: input_id_worker
-    statement_add_input_cmonth: input_cmonth
-    statement_add_input_hours: input_hours
+    statement_delete_input_id_statement: input_id_statement
 
 
     AnchorLayout:
@@ -36,7 +33,7 @@
 
             AnchorLayout:
                 Label:
-                    text: "Додавання"
+                    text: "Видалення"
                     font_size: 45
 
             GridLayout:
@@ -52,29 +49,6 @@
                     multiline: False
                     font_size: 40
 
-                Label:
-                    text: "id worker"
-
-                TextInput:
-                    id: input_id_worker
-                    multiline: False
-                    font_size: 40
-
-                Label:
-                    text: "month"
-
-                TextInput:
-                    id: input_cmonth
-                    multiline: False
-                    font_size: 40
-
-                Label:
-                    text: "hours"
-
-                TextInput:
-                    id: input_hours
-                    multiline: False
-                    font_size: 40
 
 
 
@@ -99,5 +73,5 @@
                 Button:
                     text: "Підтвердити"
                     font_size: 40
-                    on_release: root.statement_add_fun()
+                    on_release: root.statement_delete_fun()
 

@@ -15,6 +15,8 @@ from src.ui.position.PositionChangeScreen import PositionChangeScreen
 from src.ui.position.PositionDeleteScreen import PositionDeleteScreen
 from src.ui.statement.StatementMainScreen import StatementMainScreen
 from src.ui.statement.StatementAddScreen import StatementAddScreen
+from src.ui.statement.StatementChangeScreen import StatementChangeScreen
+from src.ui.statement.StatementDeleteScreen import StatementDeleteScreen
 
 
 class MainApp(App):
@@ -32,6 +34,8 @@ class MainApp(App):
         sm.add_widget(PositionDeleteScreen(name="positiondelete"))
         sm.add_widget(StatementMainScreen(name="statementmain"))
         sm.add_widget(StatementAddScreen(name="statementadd"))
+        sm.add_widget(StatementChangeScreen(name="statementchange"))
+        sm.add_widget(StatementDeleteScreen(name="statementdelete"))
         sm.current = "choice"
 
         return sm

@@ -1,10 +1,9 @@
-<StatementAddScreen>:
+<StatementChangeScreen>:
 
-    statement_add_input_id_statement: input_id_statement
-    statement_add_input_id_worker: input_id_worker
-    statement_add_input_cmonth: input_cmonth
-    statement_add_input_hours: input_hours
-
+    statement_change_input_id_statement: input_id_statement
+    statement_change_input_id_worker: input_id_worker
+    statement_change_input_cmonth: input_cmonth
+    statement_change_input_hours: input_hours
 
     AnchorLayout:
         BoxLayout:
@@ -36,7 +35,7 @@
 
             AnchorLayout:
                 Label:
-                    text: "Додавання"
+                    text: "Змінювання"
                     font_size: 45
 
             GridLayout:
@@ -84,6 +83,7 @@
 
 
 
+
             BoxLayout:
                 orientation: "horizontal"
                 size_hint: (1, .4)
@@ -99,5 +99,5 @@
                 Button:
                     text: "Підтвердити"
                     font_size: 40
-                    on_release: root.statement_add_fun()
+                    on_release: root.statement_change_fun()
 

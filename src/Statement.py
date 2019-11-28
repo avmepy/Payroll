@@ -4,6 +4,8 @@
 
 
 import sqlite3
+import pickle
+import re
 
 
 class StatementDB:
@@ -20,9 +22,16 @@ class StatementDB:
         conn.close()
 
     def append(self, id_statement, id_worker, cmonth, amount):
+
+        patt = re.compile(r'\s')
+        d = {}
+        for i, j in enumerate(patt.split(amount)):
+            d[i+1] = j
+
         conn = sqlite3.connect(self.filename)
         curs = conn.cursor()
-        curs.execute("INSERT INTO statement VALUES (?, ?, ?, ?)", (id_statement, id_worker, cmonth, amount))
+        curs.execute("INSERT INTO statement VALUES (?, ?, ?, ?)",
+                     (id_statement, id_worker, cmonth, pickle.dumps(d)))
         conn.commit()
         conn.close()
 
@@ -41,10 +50,14 @@ class StatementDB:
         curs.execute("SELECT id_statement FROM statement WHERE id_worker = ? AND month = ?", (id_worker, cmonth))
 
     def change(self, id_statement, id_worker, cmonth, amount):
+        patt = re.compile(r'\s')
+        d = {}
+        for i, j in enumerate(patt.split(amount)):
+            d[i + 1] = j
         conn = sqlite3.connect(self.filename)
         curs = conn.cursor()
         curs.execute("UPDATE statement SET id_worker = ? , cmonth = ?, amount = ? WHERE id_statement = ?",
-                     (id_worker, cmonth, amount, id_statement))
+                     (id_worker, cmonth, pickle.dumps(d), id_statement))
         conn.commit()
         conn.close()
 
@@ -59,3 +72,4 @@ class StatementDB:
 if __name__ == '__main__':
     sdb = StatementDB("../data/data.db")
     sdb.create()
+    sdb.append(301, 201, "Січень", "4 5 4 4 4 5 3 4 4 5 5 5 4 л 4 2 5 6 8 5 3 4 4 5 5 5 4 4 4 5")
