@@ -35,6 +35,15 @@ class WorkersDB:
         conn.close()
         return res
 
+    def find_id_position(self, worker_id):
+        conn = sqlite3.connect(self.filename)
+        curs = conn.cursor()
+        curs.execute("SELECT position FROM workers WHERE worker_id = ?", (worker_id,))
+        res = curs.fetchall()
+        conn.commit()
+        conn.close()
+        return int(res[0][0])
+
     def change(self, worker_id, name, position):
         conn = sqlite3.connect(self.filename)
         curs = conn.cursor()

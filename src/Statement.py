@@ -6,6 +6,10 @@
 import sqlite3
 import pickle
 import re
+from src.ReportCard import ReportCartDB
+from data.const import PATH_DB
+from src.Positions import PositionsDB
+from src.Workers import WorkersDB
 
 
 class StatementDB:
@@ -34,6 +38,28 @@ class StatementDB:
                      (id_statement, id_worker, cmonth, pickle.dumps(d)))
         conn.commit()
         conn.close()
+
+        rdb = ReportCartDB(PATH_DB)
+        wdb = WorkersDB(PATH_DB)
+        pdb = PositionsDB(PATH_DB)
+        wdb.create()
+        pdb.create()
+        rdb.create()
+
+        position_id = wdb.find_id_position(id_worker)
+        salary_ph = pdb.find_salary_ph(position_id)
+        hours = pdb.find_hours(position_id) / 30
+
+        sal = 0
+        for h in d.values():
+            if h == "л":
+                sal += .8 * salary_ph * hours
+            elif h == "в":
+                sal += salary_ph * hours
+            else:
+                sal += float(salary_ph) * min(hours, float(h))
+
+        rdb.append(hash(str(id_worker) + cmonth), id_worker, cmonth, sal)
 
     def find(self, id_statement):
         conn = sqlite3.connect(self.filename)
@@ -72,4 +98,4 @@ class StatementDB:
 if __name__ == '__main__':
     sdb = StatementDB("../data/data.db")
     sdb.create()
-    sdb.append(301, 201, "Січень", "4 5 4 4 4 5 3 4 4 5 5 5 4 л 4 2 5 6 8 5 3 4 4 5 5 5 4 4 4 5")
+    sdb.append(303, 203, "Серпень", "4 5 4 6 в 5 в 6 6 10 10 5 4 л 4 9 5 6 8 5 3 в 4 5 л 5 4 14 4 л")

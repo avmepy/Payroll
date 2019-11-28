@@ -35,6 +35,24 @@ class PositionsDB:
         conn.close()
         return res
 
+    def find_hours(self, position_id):
+        conn = sqlite3.connect(self.filename)
+        curs = conn.cursor()
+        curs.execute("SELECT number_hours FROM positions WHERE position_id = ?", (position_id,))
+        res = curs.fetchall()
+        conn.commit()
+        conn.close()
+        return float(res[0][0])
+
+    def find_salary_ph(self, position_id):
+        conn = sqlite3.connect(self.filename)
+        curs = conn.cursor()
+        curs.execute("SELECT salary_ph FROM positions WHERE position_id = ?", (position_id,))
+        res = curs.fetchall()
+        conn.commit()
+        conn.close()
+        return float(res[0][0])
+
     def change(self, position_id, position_name, salary_ph, number_hours):
         conn = sqlite3.connect(self.filename)
         curs = conn.cursor()
