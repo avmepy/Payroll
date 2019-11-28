@@ -18,7 +18,8 @@ class PositionAddScreen(Screen):
         input_id = self.position_add_input_id.text
         input_name = self.position_add_input_name.text
         input_salary = self.position_add_input_salary.text
+        input_hours = self.position_add_input_hours.text
         pdb = PositionsDB(PATH_DB)
         pdb.create()
-        pdb.append(input_id, input_name, input_salary)
+        pdb.append(input_id, input_name, input_salary, input_hours)
 

@@ -1,4 +1,11 @@
 <PositionChangeScreen>:
+
+    position_change_input_id: input_id
+    position_change_input_name: input_name
+    position_change_input_salary: input_salary
+    position_change_input_hours: input_hours
+
+
     AnchorLayout:
         BoxLayout:
             orientation: "vertical"
@@ -29,7 +36,7 @@
 
             AnchorLayout:
                 Label:
-                    text: "Змінити"
+                    text: "Змінювання"
                     font_size: 45
 
             GridLayout:
@@ -42,6 +49,7 @@
                     font_size: 40
 
                 TextInput:
+                    id: input_id
                     multiline: False
                     font_size: 50
 
@@ -51,6 +59,7 @@
                     font_size: 40
 
                 TextInput:
+                    id: input_name
                     multiline: False
                     font_size: 50
 
@@ -60,6 +69,17 @@
                     font_size: 40
 
                 TextInput:
+                    id: input_salary
+                    multiline: False
+                    font_size: 50
+
+                Label:
+                    size_hint_x: .3
+                    text: "hours"
+                    font_size: 40
+
+                TextInput:
+                    id: input_hours
                     multiline: False
                     font_size: 50
 
@@ -88,4 +108,5 @@
                 Button:
                     text: "Підтвердити"
                     font_size: 40
+                    on_release: root.position_change_fun()
 

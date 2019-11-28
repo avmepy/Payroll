@@ -1,4 +1,7 @@
 <PositionDeleteScreen>:
+
+    position_delete_input_id: input_id
+
     AnchorLayout:
         BoxLayout:
             orientation: "vertical"
@@ -42,24 +45,7 @@
                     font_size: 40
 
                 TextInput:
-                    multiline: False
-                    font_size: 50
-
-                Label:
-                    size_hint_x: .3
-                    text: "name"
-                    font_size: 40
-
-                TextInput:
-                    multiline: False
-                    font_size: 50
-
-                Label:
-                    size_hint_x: .3
-                    text: "salary"
-                    font_size: 40
-
-                TextInput:
+                    id: input_id
                     multiline: False
                     font_size: 50
 

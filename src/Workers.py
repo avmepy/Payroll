@@ -15,7 +15,7 @@ class WorkersDB:
 
         conn = sqlite3.connect(self.filename)
         curs = conn.cursor()
-        curs.execute("CREATE TABLE IF NOT EXISTS workers (worker_id INT, name TEXT, position TEXT)")
+        curs.execute("CREATE TABLE IF NOT EXISTS workers (worker_id INT, name TEXT, position INT)")
         conn.commit()
         conn.close()
 

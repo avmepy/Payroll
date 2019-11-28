@@ -3,6 +3,7 @@
     position_add_input_id: input_id
     position_add_input_name: input_name
     position_add_input_salary: input_salary
+    position_add_input_hours: input_hours
 
     AnchorLayout:
         BoxLayout:
@@ -68,6 +69,16 @@
 
                 TextInput:
                     id: input_salary
+                    multiline: False
+                    font_size: 50
+
+                Label:
+                    size_hint_x: .3
+                    text: "number hours"
+                    font_size: 40
+
+                TextInput:
+                    id: input_hours
                     multiline: False
                     font_size: 50
 
