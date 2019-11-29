@@ -64,7 +64,7 @@ class PositionsDB:
     def remove(self, position_id):
         conn = sqlite3.connect(self.filename)
         curs = conn.cursor()
-        curs.execute("DELETE FROM  positions WHERE position_id = ?", (position_id,))
+        curs.execute("DELETE FROM  positions WHERE position_id = ?", (int(position_id),))
         conn.commit()
         conn.close()
 

@@ -19,7 +19,7 @@ class StatementAddScreen(Screen):
         input_id_statement = self.statement_add_input_id_statement.text
         input_id_worker = self.statement_add_input_id_worker.text
         input_cmonth = self.statement_add_input_cmonth.text
-        input_hours = self.statement_add_input_amount.text
+        input_hours = self.statement_add_input_hours.text
 
         sdb = StatementDB(PATH_DB)
         sdb.create()
